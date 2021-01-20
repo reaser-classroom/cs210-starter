@@ -1,0 +1,26 @@
+name: Lab 1
+
+on:
+  push:
+    tags:
+      - L1
+
+jobs:
+  module:
+    name: Unit Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Checkout tag
+        uses: actions/checkout@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+      - name: Execute unit tests
+        run: gradle -b build.gradle test --tests grade.Lab1
