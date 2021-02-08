@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class Lab1 extends SQLModule {
 	@BeforeAll
 	public static void setup() {
-		module_tag = "M0";
+		module_tag = "L1";
 
 		query_data = new Object[][]{
 			// DEFAULT COLUMNS
