@@ -138,7 +138,7 @@ import types.Table;
 			count == 1 ? successful : Stream.concat(Stream.generate(() -> true).limit(count-1), Stream.of(successful)).collect(Collectors.toList()),
 			count == 1 ? last.status() == SUCCESSFUL : responses.stream().map(it -> it.status() == SUCCESSFUL).collect(Collectors.toList()),
 			String.format(
-				"%s %s was expected to %s, reason: <%s>, message: <%s>,",
+				"%s %s was expected to %s, reason: <%s>, details: <%s>,",
 				successful ? "Valid" : "Invalid",
 				count == 1 ? "query" : "script",
 				(count == 1
