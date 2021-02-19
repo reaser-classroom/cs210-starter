@@ -83,8 +83,8 @@ public class Module2 extends SQLModule {
 			{ false, "m2_table2", "INSERT INTO m2_table2 (s, b) VALUES (\"h9\", true)", "primary column cannot be omitted" },
 			{ false, "m2_table2", "INSERT INTO m2_table2 (pi) VALUES (null)", "primary column values cannot be null" },
 			{ false, "m2_table2", "INSERT INTO m2_table2 (s, pi, b) VALUES (\"h10\", null, false)", "primary column values cannot be null" },
-			{ false, "m2_table2", "INSERT INTO m2_table2 (s, pi, b) VALUES (\"h11\", 12, true); INSERT INTO m2_table2 (s, pi, b) VALUES (\"h13\", 12, false)", "different rows may not share the same primary column value" },
-			{ true,  "m2_table2", "INSERT INTO m2_table2 (s, pi, b) VALUES (\"h13\", 14, true); REPLACE INTO m2_table2 (s, pi, b) VALUES (\"h15\", 14, false)", "a row can be replaced by a row with the same primary column value" },
+			{ false, "m2_table2", "INSERT INTO m2_table2 (s, pi, b) VALUES (\"h11\", 12, true); INSERT INTO m2_table2 (s, pi, b) VALUES (\"h11\", 12, false)", "different rows may not share the same primary column value" },
+			{ true,  "m2_table2", "INSERT INTO m2_table2 (s, pi, b) VALUES (\"h13\", 14, true); REPLACE INTO m2_table2 (s, pi, b) VALUES (\"h13\", 14, false)", "a row can be replaced by a row with the same primary column value" },
 
 			// INSERT/REPLACE INTO, SYNTAX AND SEMANTICS: BOOLEAN PRIMARY, NON-ZERO INDEX
 			{ true,  "m2_table3", "INSERT INTO m2_table3 (s, pb, i) VALUES (\"i1\", false, 2)", "primary column need not be leftmost" },
