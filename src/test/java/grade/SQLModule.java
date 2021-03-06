@@ -103,7 +103,7 @@ import types.Table;
 		boolean successful,
 		String table_name,
 		String sql,
-		String reason,
+		String purpose,
 		Table expected_table
 	) {
 		System.out.println(sql);
@@ -138,13 +138,13 @@ import types.Table;
 			count == 1 ? successful : Stream.concat(Stream.generate(() -> true).limit(count-1), Stream.of(successful)).collect(Collectors.toList()),
 			count == 1 ? last.status() == SUCCESSFUL : responses.stream().map(it -> it.status() == SUCCESSFUL).collect(Collectors.toList()),
 			String.format(
-				"%s %s was expected to %s, reason: <%s>, details: <%s>,",
+				"%s %s was expected to %s, purpose of test: <%s>, details in response: <%s>,",
 				successful ? "Valid" : "Invalid",
 				count == 1 ? "query" : "script",
 				(count == 1
 					? (successful ? "succeed" : "fail")
 					: (successful ? "succeed for all queries" : "fail only on last query")),
-				reason != null ? reason : "none provided",
+				purpose != null ? purpose : "none provided",
 				last.details() != null ? last.details() : "none included"
 			)
 		);
