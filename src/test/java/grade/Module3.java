@@ -90,10 +90,10 @@ public class Module3 extends SQLModule {
 			{ true,  "_select",  "SELECT * FROM m3_table WHERE b <> true", null },
 			{ true,  "_select",  "SELECT * FROM m3_table WHERE b = false", null },
 			{ true,  "_select",  "SELECT * FROM m3_table WHERE b <> false", null },
-			{ false, "_select",  "SELECT * FROM m3_table WHERE b < true", "operator < is invalid for booleans" },
-			{ false, "_select",  "SELECT * FROM m3_table WHERE b > false", "operator > is invalid for booleans" },
-			{ false, "_select",  "SELECT * FROM m3_table WHERE b <= true", "operator <= is invalid for booleans" },
-			{ false, "_select",  "SELECT * FROM m3_table WHERE b >= false", "operator >= is invalid for booleans" },
+			{ false, "_select",  "SELECT * FROM m3_table WHERE b < true", "null comparison case takes precedence over invalid operator case" },
+			{ false, "_select",  "SELECT * FROM m3_table WHERE b > false", "null comparison case takes precedence over invalid operator case" },
+			{ false, "_select",  "SELECT * FROM m3_table WHERE b <= true", "null comparison case takes precedence over invalid operator case" },
+			{ false, "_select",  "SELECT * FROM m3_table WHERE b >= false", "null comparison case takes precedence over invalid operator case" },
 
 			// SELECT TABLE, SYNTAX AND SEMANTICS: NULL CONDITIONS
 			{ true,  "_select",  "SELECT * FROM m3_table WHERE ps = null", null },
